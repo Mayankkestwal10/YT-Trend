@@ -1,0 +1,128 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>YTtrend</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/flatly/bootstrap.min.css" integrity="sha384-mhpbKVUOPCSocLzx2ElRISIORFRwr1ZbO9bAlowgM5kO7hnpRBe+brVj8NNPUiFs" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger">
+      <a class="navbar-brand" href="/">YTtrend</a>
+      <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <button>
+	<span class="visually-hidden">Toggle color palette</span>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" width="1em" height="1em">
+		<defs>
+			<circle id="circle" r="7" />
+			<mask id="mask--circle">
+				<use transform="scale(4)" href="#circle" fill="hsl(0, 0%, 100%)" />
+				<g transform="translate(20 -20)">
+					<g id="shadow" transform="scale(0)">
+						<use transform="scale(4)" href="#circle" fill="hsl(0, 0%, 0%)" />
+					</g>
+				</g>
+			</mask>
+		</defs>
+		<g fill="currentColor" stroke="none">
+			<g id="body" transform="scale(0.75) rotate(90)">
+				<g mask="url(#mask--circle)">
+					<use transform="scale(4)" href="#circle" />
+				</g>
+			</g>
+
+			<g id="appendages">
+				<g>
+					<use transform="rotate(0) translate(0 38)" href="#circle" />
+				</g>
+				<g>
+					<use transform="rotate(60) translate(0 38)" href="#circle" />
+				</g>
+				<g>
+					<use transform="rotate(120) translate(0 38)" href="#circle" />
+				</g>
+				<g>
+					<use transform="rotate(180) translate(0 38)" href="#circle" />
+				</g>
+				<g>
+					<use transform="rotate(240) translate(0 38)" href="#circle" />
+				</g>
+				<g>
+					<use transform="rotate(300) translate(0 38)" href="#circle" />
+				</g>
+			</g>
+		</g>
+	</svg>
+</button>
+      </div>
+    </nav>
+
+    
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 align="center">Top Trending - Youtube India</h2>
+    <div class="container">
+        {% for rank, heading, info, link, image, view, like, dislike in context %}
+        <a href="{{link}}" class="mt-4 list-group-item list-group-item-action">
+            <h4>{{heading}}</h4>
+            <div class="row">
+                <div class="col-md-8 p-2">{{info}}.......</div>
+                <div class="col-md-4">
+                <img  src="{{image}}" alt="">
+                </div>
+            </div> 
+            <div class="row p-2">
+              <div class="col-md-2">
+              <h3><span style="color:red">#</span>{{rank}}</h3>
+              </div>
+              <div class="col-md-2">
+              <h5><span style="color:green">Views -</span>{{view}}</h5>
+              </div>
+              <div class="col-md-2">
+              <h5><span style="color:blue">Likes -</span>{{like}}</h5>
+              </div>
+              <div class="col-md-2">
+              <h5><span style="color:violet">Dislikes -</span>{{dislike}}</h5>
+              </div>
+            </div>
+
+        </a>
+        {% endfor %}
+    </div>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Youtube API based!</p>
+        <p>Developer - Mayank kestwal - <a href="https.//www.github.com/mayankkestwal10">Github</a> or <a href="https://www.linkedin.com/in/mayank-kestwal-476bbb147/">LinkedIn</a>.</p>
+      </div>
+    </footer>
+
+    <script>
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => document.body.classList.toggle("dark"));
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

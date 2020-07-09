@@ -1,0 +1,126 @@
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Vollkorn', serif !important;
+}
+
+
+/* Taken from Gabriele Corti */
+
+body {
+    --color-dark: hsl(0, 0%, 100%);
+    --background-dark: hsl(208, 25%, 10%);
+    --color-light: hsl(220, 25%, 5%);
+    --background-light: hsl(202, 100%, 100%);
+    color: var(--color-light);
+    background: var(--background-light);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+body {
+    transition-property: color, background;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+body.dark {
+    color: var(--color-dark);
+    background: var(--background-dark);
+}
+
+button {
+    color: inherit;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    display: block;
+    outline: none;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+button:focus {
+    outline: 1px dotted currentColor;
+}
+
+svg {
+    display: block;
+}
+
+
+/* dots around the sun
+remove transition the class .dark is added
+*/
+
+body svg #appendages>g {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.dark svg #appendages>g {
+    transition: none;
+}
+
+body svg #appendages>g:nth-of-type(1) {
+    transition-delay: 0.1s;
+}
+
+body svg #appendages>g:nth-of-type(2) {
+    transition-delay: 0.2s;
+}
+
+body svg #appendages>g:nth-of-type(3) {
+    transition-delay: 0.3s;
+}
+
+body svg #appendages>g:nth-of-type(4) {
+    transition-delay: 0.4s;
+}
+
+body svg #appendages>g:nth-of-type(5) {
+    transition-delay: 0.5s;
+}
+
+body svg #appendages>g:nth-of-type(6) {
+    transition-delay: 0.6s;
+}
+
+body.dark svg #appendages>g {
+    transform: scale(0);
+}
+
+body svg #shadow,
+body svg #body {
+    transition: transform 0.5s ease-in-out;
+}
+
+body.dark svg #shadow,
+body.dark svg #body {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1);
+}
+
+
+/* Gabriele Corti */
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
